@@ -4,8 +4,26 @@ const toDoList = document.querySelector('.js-toDoList')
 
 const TODOS_LS = 'toDos'
 
-let toDos = []
+let toDos = [] 
 
+function completeToDo(event) {
+	const comBtn = event.target
+	const uncomBtn = comBtn.nextSibling
+	const li = comBtn.parentNode
+
+	li.setAttribute('class', 'line')
+	comBtn.setAttribute('class', 'display-none')
+	uncomBtn.setAttribute('class', '')
+}
+function uncompleteToDo(event) {
+	const uncomBtn = event.target
+	const comBtn = uncomBtn.previousSibling
+	const li = uncomBtn.parentNode
+
+	li.setAttribute('class', '')
+	comBtn.setAttribute('class', '')
+	uncomBtn.setAttribute('class', 'display-none')
+}
 function deleteToDo(event) {
 	const btn = event.target;
 	const li = btn.parentNode;
@@ -23,13 +41,24 @@ function paintToDo(text) {
 	const li = document.createElement('li')
 	const delBtn = document.createElement('button')
 	const span = document.createElement('span')
+	const comBtn = document.createElement('button')
+	const uncomBtn = document.createElement('button')
 	const newId = toDos.length + 1
 
 	delBtn.innerText = 'X'
 	delBtn.addEventListener('click', deleteToDo)
+	comBtn.innerText = '완료'
+	comBtn.addEventListener('click', completeToDo)
+	uncomBtn.innerText = '아직..'
+	uncomBtn.addEventListener('click', uncompleteToDo)
+	uncomBtn.setAttribute('class', 'display-none')
 	span.innerText = text
-	li.appendChild(delBtn)
+
 	li.appendChild(span)
+	li.appendChild(delBtn)
+	li.appendChild(comBtn)
+	li.appendChild(uncomBtn)
+
 	li.id = newId
 	console.log(toDoList, li)
 	toDoList.appendChild(li)
@@ -41,7 +70,7 @@ function paintToDo(text) {
 	saveToDos()
 }
 function handleSubmit(event) { // 방금 input된 값을 넣는다. 
-	event.preventDefault()	// ?????????????????
+	event.preventDefault()	
 	const currentValue = toDoInput.value
 	paintToDo(currentValue)
 	toDoInput.value = ''
