@@ -1,0 +1,22 @@
+nav {
+	padding: 15px;
+	background-color: LightCyan;
+}
+.menu {
+	float: left;
+	width: 140px;
+	height: 254px;
+	background-color: WhiteSmoke;
+}
+.main {
+	float: left;
+	padding: 30px;
+}
+article:after { 	/* ?????????????????? 3개가 모두 있어야한다????*/
+	clear: both;
+	display: block;
+	content: '';
+}
+footer{
+	padding: 15px;
+}
