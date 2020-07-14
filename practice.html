@@ -9,21 +9,36 @@
 	<title>이이이이잉</title>
 </head>
 <body>
-	<nav>hello world</nav>
-	<article class="row">
-		<div class="col-md-3 col-lg-2 menu">
-			<ul>
-				<li>첫번째 메뉴</li>
-				<li>두번째 메뉴</li>
-				<li>세번째 메뉴</li>
-			</ul>
-		</div>
-		<div class="col-md-9 col-lg-10 main">
-			<form class="js-toDoForm" action='#'>
-				<input type="text" placeholder="write a to do">
-			</form>
-			<ul class="js-toDoList container-sm">
-			</ul>
+	<nav class="navbar navbar-dark bg-dark">
+		<a class="navbar-brand " href="#">Scheduling</a>
+		<button class="navbar-toggler d-md-none" data-target="#menu2" data-toggle="collapse">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+	</nav>
+	<article class="container-fluid">
+		<div class="row">
+			<nav id="menu" class="col-md-3 col-lg-2 d-md-block 
+			bg-light collapse">  <!-- 왠지 모르게 collapse와 d-md-block을 쓰면 보임 -->
+				<ul>
+					<li><a href="#">첫번째 메뉴</a></li>
+					<li><a href="#">두번째 메뉴</a></li>
+					<li><a href="#">세번째 메뉴</a></li>
+				</ul>
+			</nav>
+			<nav id="menu2" class="col-sm-12 d-md-none bg-dark collapse"> 
+				<ul class="row">
+					<li class="col-sm-4"><a href="#">첫번째 메뉴</a></li>
+					<li class="col-sm-4"><a href="#">두번째 메뉴</a></li>
+					<li class="col-sm-4"><a href="#">세번째 메뉴</a></li>
+				</ul>
+			</nav>
+			<div class="col-md-9 col-lg-10 main">
+				<form class="js-toDoForm input-group-lg" action='#'>
+					<input type="text" class="form-control" placeholder="write your toDoList">
+				</form>
+				<ul class="js-toDoList container-sm">
+				</ul>
+			</div>
 		</div>
 	</article>
 	<footer>good bye world!</footer>

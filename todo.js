@@ -11,7 +11,7 @@ function completeToDo(event) {
 	const uncomBtn = comBtn.nextSibling
 	const li = comBtn.parentNode
 
-	li.setAttribute('class', 'row alert alert-secondary line')
+	li.setAttribute('class', 'row alert alert-danger line')
 	comBtn.setAttribute('class', 'd-none')
 	uncomBtn.setAttribute('class', 'col-md-1 btn btn-outline-primary')
 }
