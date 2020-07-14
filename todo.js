@@ -11,18 +11,18 @@ function completeToDo(event) {
 	const uncomBtn = comBtn.nextSibling
 	const li = comBtn.parentNode
 
-	li.setAttribute('class', 'line')
-	comBtn.setAttribute('class', 'display-none')
-	uncomBtn.setAttribute('class', '')
+	li.setAttribute('class', 'row alert alert-secondary line')
+	comBtn.setAttribute('class', 'd-none')
+	uncomBtn.setAttribute('class', 'col-md-1 btn btn-outline-primary')
 }
 function uncompleteToDo(event) {
 	const uncomBtn = event.target
 	const comBtn = uncomBtn.previousSibling
 	const li = uncomBtn.parentNode
 
-	li.setAttribute('class', '')
-	comBtn.setAttribute('class', '')
-	uncomBtn.setAttribute('class', 'display-none')
+	li.setAttribute('class', 'row alert alert-secondary')
+	comBtn.setAttribute('class', 'col-md-1 btn btn-outline-primary')
+	uncomBtn.setAttribute('class', 'd-none')
 }
 function deleteToDo(event) {
 	const btn = event.target;
@@ -45,14 +45,18 @@ function paintToDo(text) {
 	const uncomBtn = document.createElement('button')
 	const newId = toDos.length + 1
 
+	li.setAttribute('class', 'row alert alert-secondary')
 	delBtn.innerText = 'X'
 	delBtn.addEventListener('click', deleteToDo)
+	delBtn.setAttribute('class', 'col-md-1 btn btn-outline-danger')
 	comBtn.innerText = '완료'
 	comBtn.addEventListener('click', completeToDo)
+	comBtn.setAttribute('class', 'col-md-1 btn btn-outline-primary')
 	uncomBtn.innerText = '아직..'
 	uncomBtn.addEventListener('click', uncompleteToDo)
-	uncomBtn.setAttribute('class', 'display-none')
+	uncomBtn.setAttribute('class', 'd-none')
 	span.innerText = text
+	span.setAttribute('class', 'col-md-10')
 
 	li.appendChild(span)
 	li.appendChild(delBtn)
