@@ -1,3 +1,8 @@
+// class를 만들지 않으면 안된다. 
+// 1. spa를 위해서는 함수와 변수가 페이지마다 따로 할당되야함 -> 원하는 페이지에 맞는 querySelector가 할당되야함(없으면 오류) 
+// 2. 그러기 위해서는 원하는 페이지인 것을 확인(hash이용) 그리고 변수 할당이 되어야함(순서 중요)
+// 결론 : spa를 구현하는 방법을 위해서는 다른 frame work들을 사용하거나 ajax를 이용할거면 class를 이용해야하지 않을까 의심중
+
 const toDoForm = document.querySelector('.js-toDoForm')
 const toDoInput = document.querySelector('input')
 const toDoList = document.querySelector('.js-toDoList')
@@ -5,6 +10,7 @@ const toDoList = document.querySelector('.js-toDoList')
 const TODOS_LS = 'toDos'
 
 let toDos = [] 
+
 
 function completeToDo(event) {
 	const comBtn = event.target
@@ -83,6 +89,8 @@ function loadToDos() {		// 기존의 local에저장된 값을 불러온다.
 	const loadedToDos = localStorage.getItem(TODOS_LS)
 	if (loadedToDos !== null) {
 		const parsedToDos = JSON.parse(loadedToDos)
+		console.log(parsedToDos, loadedToDos)
+		console.log('hihihihi')
 		parsedToDos.forEach(function(toDo) {
 			paintToDo(toDo.text)
 		})
